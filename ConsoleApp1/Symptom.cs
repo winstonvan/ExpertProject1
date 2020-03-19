@@ -10,7 +10,7 @@ namespace ConsoleApp1
     public class Symptom
     {
 
-        [XmlAttribute]
+        
         public string Name { get; set; }
         public Sequencing Assignment { get; set; }
 
