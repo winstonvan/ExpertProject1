@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cancer.cs" />
+    <Compile Include="KnowledgeBase.cs" />
+    <Compile Include="Symptom.cs" />
     <Compile Include="Fact.cs" />
     <Compile Include="InferenceEngine.cs" />
     <Compile Include="Program.cs" />
