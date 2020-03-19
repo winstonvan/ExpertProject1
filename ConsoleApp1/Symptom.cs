@@ -12,13 +12,13 @@ namespace ConsoleApp1
 
         [XmlAttribute]
         public string Name { get; set; }
-        public Sequencing Signature { get; set; }
+        public Sequencing Assignment { get; set; }
 
         public Symptom() { }
 
         public override string ToString()
         {
-            return this.Name + " (" + this.Signature.ToString() + ")";
+            return this.Name + " (" + this.Assignment.ToString() + ")";
         }
     }
 }

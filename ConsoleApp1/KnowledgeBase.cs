@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 Cancer r = new Cancer();
 
                 IEnumerable<Symptom> ingIterator = from Symptom i in Symptoms where Ing.Contains(i.Name) select i;
-                foreach (Symptom i in ingIterator) r.Symptoms += i.Signature;
+                foreach (Symptom i in ingIterator) r.Symptoms += i.Assignment;
                 r.Name = Name;
 
                 return r;
