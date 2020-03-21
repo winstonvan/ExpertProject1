@@ -11,13 +11,13 @@ namespace ConsoleApp1
 	{
 		private String ruleName;
 
-		private List<Fact> facts;
-		private Fact result;
+		private List<Statement> conditions;
+		private Statement result;
 
 		public Rule(String ruleName)
 		{
 			this.ruleName = ruleName;
-			this.facts = new List<Fact>();
+			this.conditions = new List<Statement>();
 		}
 
 		// get functions
@@ -27,14 +27,26 @@ namespace ConsoleApp1
 		}
 
 		// set functions
-		public void AddCondition(Fact condition)
+		public void AddCondition(Statement condition)
 		{
-			this.facts.Add(condition);
+			this.conditions.Add(condition);
 		}
 
-		public void SetResult(Fact result)
+		public void SetResult(Statement result) 
 		{
 			this.result = result;
+		}
+
+		public Boolean MatchRuleWithFact(Fact fact)
+		{
+			for (int i = 0; i < conditions.Count; i++)
+			{
+				if (fact.FoundMatchingFact(conditions[i]) == true)
+				{
+					return true;
+				}
+			}
+			return true;
 		}
 
 		// print to string
@@ -42,9 +54,9 @@ namespace ConsoleApp1
 		{
 			String temp = "Rule: " + this.ruleName + "\n";
 
-			for (int i = 0; i < facts.Count; i++)
+			for (int i = 0; i < conditions.Count; i++)
 			{
-				temp += "Condition " + (i + 1) + ": " + this.facts[i].Print() + "\n";
+				temp += "Condition " + (i + 1) + ": " + this.conditions[i].Print() + "\n";
             }
 
 			temp += "Result: " + this.result.Print() + "\n";
