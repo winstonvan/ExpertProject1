@@ -8,53 +8,42 @@ namespace ConsoleApp1
 {
     public class Fact
     {
-        private String variable = ""; // name: car
-        private String op = ""; // operator: equals, notEquals, negation, lessThan, greaterThan 
-        private String value = ""; // numWheels: 4
-                                // Fact: car = numWheels(4)
+        private List<Statement> facts;
 
-        // constructors
-        public Fact() { }
-
-        public Fact(String variable, String op, String value)
-        {
-            this.variable = variable;
-            this.op = op;
-            this.value = value;
+        public Fact() {
+            facts = new List<Statement>();
         }
 
-        // get functions
-        public String GetVariable()
-        {
-            return this.variable;
-        }
-        public String GetValue()
-        {
-            return this.value;
-        }
-        public String GetOperator()
-        {
-            return this.op;
+        public void AddFact(Statement fact) {
+            facts.Add(fact);
         }
 
-        // set functions
-        public void SetVariable(String variable)
+        public void RemoveFact(int i)
         {
-            this.variable = variable;
-        }
-        public void SetValue(String value)
-        {
-            this.value = value;
-        }
-        public void SetOperator(String op)
-        {
-            this.op = op;
+            facts.RemoveAt(i);
         }
 
-        // print to string
-        public String Print()
+        public void RemoveAllFacts()
         {
-            return this.variable + " " + this.op + " " + this.value;
+            facts.Clear();
+        }
+
+        public List<Statement> GetFacts()
+        {
+            return facts;
+        }
+
+        public Boolean FoundMatchingFact(Statement rule)
+        {
+            for (int i = 0; i < facts.Count; i++)
+            {
+                if (facts[i].GetVariable().Equals(rule.GetVariable()))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
