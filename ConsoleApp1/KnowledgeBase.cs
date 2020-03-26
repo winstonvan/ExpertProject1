@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    
-       
         public class KnowledgeBase
         {
-            
             public List<Symptom> Symptoms { get; set; }
-           
+
             public List<Cancer> Cancers { get; set; }
 
             public KnowledgeBase()
@@ -20,21 +17,19 @@ namespace ConsoleApp1
                 Symptoms = new List<Symptom>();
                 Cancers = new List<Cancer>();
             }
-           
 
-          
-            public Cancer newCancer(string Name, params string[] Ing)
-            {
-                Cancer r = new Cancer();
+        //public Cancer newCancer(string Name, params string[] Ing)
+        //{
+        //    Cancer r = new Cancer();
 
-                IEnumerable<Symptom> ingIterator = from Symptom i in Symptoms where Ing.Contains(i.Name) select i;
-                foreach (Symptom i in ingIterator) r.Symptoms += i.Assignment;
-                r.Name = Name;
+        //    IEnumerable<Symptom> ingIkrom Symptom i in Symptoms where Ing.Contains(i.Name) select i;
+        //    foreach (Symptom i in ingIterator) r.Symptoms += i.Assignment;
+        //    r.Name = Name;
 
-                return r;
-            }
-           
-        }
+        //    return r;
+        //}
+
+    }
     }
 
 

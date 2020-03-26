@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace ConsoleApp1
 {
     public class Symptom
     {
+        private Statement symptom;
 
-        
-        public string Name { get; set; }
-        public Sequencing Assignment { get; set; }
+        public Symptom(Statement symptom)
+        { 
+            this.symptom = symptom;
+        }
 
-        public Symptom() { }
-
-        public override string ToString()
+        public Statement GetSymptom()
         {
-            return this.Name + " (" + this.Assignment.ToString() + ")";
+            return this.symptom;
         }
     }
 }
-

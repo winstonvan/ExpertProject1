@@ -13,14 +13,12 @@ namespace ConsoleApp1
             InferenceEngine IE = new InferenceEngine();
             Console.WriteLine("Test\n");
 
-            Rule rule1 = new Rule("Bicycle");
-            rule1.AddCondition(new Statement("motor", "equals", "no"));
-            rule1.AddCondition(new Statement("numWheels", "equals", "2"));
-            rule1.SetResult(new Statement("vehicle", "equals", "bicycle"));
-            IE.AddRule(rule1);
+            Cancer cancer = new Cancer("Liver");
+            cancer.AddCondition(new Statement("motor", "equals", "no"));
+            cancer.AddCondition(new Statement("numWheels", "equals", "2"));
+            cancer.SetResult(new Statement("vehicle", "equals", "bicycle"));
+            IE.AddCancer(cancer);
 
-            rule1.Print();
-            Console.ReadLine();
         }
     }
 }
