@@ -9,37 +9,11 @@ namespace ConsoleApp1
     public class InferenceEngine
     {
         public KnowledgeBase kb;
-        private List<Cancer> cancer;
-        private List<Symptom> symptom;
 
         public InferenceEngine()
         {
-            cancer = new List<Cancer>();
-            symptom = new List<Symptom>();
             kb = new KnowledgeBase();
         }
-
-        // set functions
-        public void AddCancer(Cancer cancer)
-        {
-            this.cancer.Add(cancer);
-        }
-
-        // get functions
-        public void GetCancers()
-        {
-            for (int i = 0; i < cancer.Count; i++)
-            {
-                Console.WriteLine(cancer[i].Print());
-            }
-        }
-
-        // delete functions
-        public void DeleteCancers() 
-        {
-            this.cancer.Clear();
-        }
-
 
         public void InferCancers(List<Symptom> symptoms) // forward chaining
         {
@@ -48,8 +22,22 @@ namespace ConsoleApp1
 
             for (int i = 0; i < symptoms.Count; i++)
             {
-                
+                for (int j = 0; j < kb.Symptoms.Count; j++)
+                {
+                    
+                }
             }            
+        }
+
+        public List<Cancer> FindMatch()
+        {
+            List<Cancer> temp = new List<Cancer>();
+
+            for (int i = 0; i < kb.Cancers.Count(); i++)
+            {
+
+            }
+            return 
         }
     }
 }

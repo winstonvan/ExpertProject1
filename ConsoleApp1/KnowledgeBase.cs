@@ -6,17 +6,27 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-        public class KnowledgeBase
+    public class KnowledgeBase
+    {
+        public List<Symptom> Symptoms { get; set; }
+
+        public List<Cancer> Cancers { get; set; }
+
+        public KnowledgeBase()
         {
-            public List<Symptom> Symptoms { get; set; }
+            Symptoms = new List<Symptom>();
+            Cancers = new List<Cancer>();
+        }
 
-            public List<Cancer> Cancers { get; set; }
+        public void AddCancer(Cancer cancer)
+        {
+            this.Cancers.Add(cancer);
+        }
 
-            public KnowledgeBase()
-            {
-                Symptoms = new List<Symptom>();
-                Cancers = new List<Cancer>();
-            }
+        public void AddSymptom(Symptom symptom)
+        {
+            this.Symptoms.Add(symptom);
+        }
 
         //public Cancer newCancer(string Name, params string[] Ing)
         //{
@@ -30,6 +40,6 @@ namespace ConsoleApp1
         //}
 
     }
-    }
+}
 
 

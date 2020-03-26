@@ -8,16 +8,11 @@ namespace ConsoleApp1
 {
     public class Symptom
     {
-        private Statement symptom;
+        public Statement symptom;
 
         public Symptom(Statement symptom)
         { 
             this.symptom = symptom;
-        }
-
-        public Statement GetSymptom()
-        {
-            return this.symptom;
         }
     }
 }

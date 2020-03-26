@@ -9,10 +9,9 @@ namespace ConsoleApp1
 {
 	public class Cancer
 	{
-		private String cancerName;
-
-		private List<Statement> conditions;
-		private Statement result;
+		public String cancerName;
+		public List<Statement> conditions;
+		public Statement result;
 
 		public Cancer(String cancerName)
 		{
@@ -20,18 +19,6 @@ namespace ConsoleApp1
 			this.conditions = new List<Statement>();
 		}
 
-		// get functions
-		public String GetCancerName()
-		{
-			return cancerName;
-		}
-
-		public List<Statement> GetConditions()
-		{
-			return this.conditions;
-		}
-
-		// set functions
 		public void AddCondition(Statement condition)
 		{
 			this.conditions.Add(condition);
@@ -52,20 +39,6 @@ namespace ConsoleApp1
 				}
 			}
 			return true;
-		}
-
-		// print to string
-		public String Print()
-		{
-			String temp = "Rule: " + this.cancerName + "\n";
-
-			for (int i = 0; i < conditions.Count; i++)
-			{
-				temp += "Condition " + (i + 1) + ": " + this.conditions[i].Print() + "\n";
-			}
-
-			temp += "Result: " + this.result.Print() + "\n";
-			return temp;
 		}
 	}
 }
