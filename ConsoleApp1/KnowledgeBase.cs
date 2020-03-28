@@ -18,15 +18,6 @@ namespace ConsoleApp1
             Cancers = new List<Cancer>();
         }
 
-        public void AddCancer(Cancer cancer)
-        {
-            this.Cancers.Add(cancer);
-        }
-
-        public void AddSymptom(Symptom symptom)
-        {
-            this.Symptoms.Add(symptom);
-        }
 
         //public Cancer newCancer(string Name, params string[] Ing)
         //{

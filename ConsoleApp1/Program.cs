@@ -10,14 +10,42 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            InferenceEngine IE = new InferenceEngine();
             Console.WriteLine("Test\n");
+                
+            InferenceEngine IE = new InferenceEngine();
 
-            Cancer cancer = new Cancer("Liver");
-            cancer.AddCondition(new Statement("motor", "equals", "no"));
-            cancer.AddCondition(new Statement("numWheels", "equals", "2"));
-            cancer.SetResult(new Statement("vehicle", "equals", "bicycle"));
+            string[] symptoms = new string[] {
+                "Jaundice", "Weight loss"
+            };
+
+            for (int i = 0; i < symptoms.Length; i++)
+            {
+                IE.AddSymptom(new Symptom(new Statement(symptoms[i], "equals", "yes")));
+            }
+
+            Cancer cancer = new Cancer("Pancreatic");
+            cancer.AddCondition(new Statement("Jaundice ", "equals", "yes"));
+            cancer.AddCondition(new Statement("Weight loss", "equals", "yes"));
+            cancer.SetResult(new Statement("Pancreatic", "equals", "yes"));
             IE.AddCancer(cancer);
+
+            Cancer cancer2 = new Cancer("Liver");
+            cancer2.AddCondition(new Statement("Lump", "equals", "yes"));
+            cancer2.AddCondition(new Statement("Jaundice", "equals", "yes"));
+            cancer2.AddCondition(new Statement("Nausea", "equals", "yes"));
+            cancer2.SetResult(new Statement("Liver", "equals", "yes"));
+            IE.AddCancer(cancer2);
+
+            Cancer cancer3 = new Cancer("Colon");
+            cancer3.AddCondition(new Statement("Vomiting", "equals", "yes"));
+            cancer3.SetResult(new Statement("Colon", "equals", "yes"));
+            IE.AddCancer(cancer3);
+
+            IE.PrintSymptoms();
+            IE.PrintCancers();
+
+            IE.InferCancers(IE.kb.Symptoms);
+            Console.ReadLine();
 
         }
     }

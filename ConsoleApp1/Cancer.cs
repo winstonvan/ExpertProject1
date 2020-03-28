@@ -12,6 +12,14 @@ namespace ConsoleApp1
 		public String cancerName;
 		public List<Statement> conditions;
 		public Statement result;
+		public List<int> score;
+
+		public Cancer()
+		{
+			cancerName = "";
+			this.conditions = new List<Statement>();
+			this.score = new List<int>();
+		}
 
 		public Cancer(String cancerName)
 		{
@@ -22,6 +30,7 @@ namespace ConsoleApp1
 		public void AddCondition(Statement condition)
 		{
 			this.conditions.Add(condition);
+			this.UpdateScore();
 		}
 
 		public void SetResult(Statement result)
@@ -29,16 +38,20 @@ namespace ConsoleApp1
 			this.result = result;
 		}
 
-		public Boolean MatchingCancerWithSymptom(Symptom symptom)
+		public void UpdateScore()
 		{
-			for (int i = 0; i < conditions.Count; i++)
+			// get current length of cancer conditions
+			int count = this.conditions.Count;
+
+			// reset list
+			this.score.Clear();
+
+			// update list values
+			for (int i = 0; i < count; i++)
 			{
-				if (symptom.FoundMatchingSymptom(conditions[i]) == true)
-				{
-					return true;
-				}
+				this.score.Add(count);
+				count--;
 			}
-			return true;
 		}
 	}
 }
