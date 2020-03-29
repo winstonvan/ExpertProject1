@@ -44,7 +44,7 @@ namespace ConsoleApp1
             IE.PrintSymptoms();
             IE.PrintCancers();
 
-            IE.InferCancers(IE.kb.Symptoms);
+            IE.InferCancers(IE.kb.Symptom);
             Console.ReadLine();
 
         }

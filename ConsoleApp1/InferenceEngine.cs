@@ -22,7 +22,7 @@ namespace ConsoleApp1
 
         public void AddSymptom(Symptom symptom)
         {
-            kb.Symptoms.Add(symptom);
+            kb.Symptom.Add(symptom);
         }
 
         public void InferCancers(List<Symptom> symptoms) // forward chaining
@@ -93,11 +93,11 @@ namespace ConsoleApp1
 
         public void PrintSymptoms()
         {
-            Console.WriteLine("\nSymptoms count: " + kb.Symptoms.Count);
+            Console.WriteLine("\nSymptoms count: " + kb.Symptom.Count);
 
-            for (int i = 0; i < kb.Symptoms.Count; i++)
+            for (int i = 0; i < kb.Symptom.Count; i++)
             {
-                Console.WriteLine("Symptom " + (i + 1) + ": " + kb.Symptoms[i].symptom.GetVariable() + "");
+                Console.WriteLine("Symptom " + (i + 1) + ": " + kb.Symptom[i].symptom.GetVariable() + "");
             }
         }
     }

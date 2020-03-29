@@ -14,5 +14,10 @@ namespace ConsoleApp1
         { 
             this.symptom = symptom;
         }
+
+        public override string ToString()
+        {
+            return this.symptom + " (" + this.symptom.ToString() + ")";
+        }
     }
 }
