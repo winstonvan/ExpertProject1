@@ -44,10 +44,13 @@ namespace ConsoleApp1
                 }
             }
 
+            temp.Sort((x, y) => y.total - x.total);
+
+
             Console.WriteLine("\nCancer types matched: ");
             for (int i = 0; i < temp.Count; i++)
             {
-                Console.WriteLine("Cancer " + (i + 1) + ": " + kb.Cancers[i].result.GetVariable());
+                Console.WriteLine("Cancer " + (i + 1) + ": " + temp[i].result.GetVariable());
             }
         }
 
@@ -63,6 +66,7 @@ namespace ConsoleApp1
                     {
                         // matches, add to temp list
                         temp.Add(kb.Cancers[i]);
+                        temp[i].SetTotal(10 - (j + 1));
                     }
                     else
                     {
@@ -72,17 +76,6 @@ namespace ConsoleApp1
             }
 
             return temp;
-        }
-
-        public void ConditionWeighing(List<Cancer> cancer)
-        {
-            int result = 0;
-
-            for (int i = 0; i < cancer.Count; i++)
-            {
-                var count = cancer[i].conditions.Count;
-                result = 
-            }
         }
 
         public void PrintCancers()

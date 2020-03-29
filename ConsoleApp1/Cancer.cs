@@ -7,51 +7,62 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-	public class Cancer
-	{
-		public String cancerName;
-		public List<Statement> conditions;
-		public Statement result;
-		public List<int> score;
+    public class Cancer
+    {
+        public String cancerName;
+        public List<Statement> conditions;
+        public Statement result;
+        public List<int> score;
+        public int total;
 
-		public Cancer()
-		{
-			cancerName = "";
-			this.conditions = new List<Statement>();
-			this.score = new List<int>();
-		}
+        public Cancer()
+        {
+            cancerName = "";
+            this.conditions = new List<Statement>();
+            this.score = new List<int>();
+            this.total = 0;
+        }
 
-		public Cancer(String cancerName)
-		{
-			this.cancerName = cancerName;
-			this.conditions = new List<Statement>();
-		}
+        public Cancer(String cancerName)
+        {
+            this.cancerName = cancerName;
+            this.conditions = new List<Statement>();
+            this.score = new List<int>();
+            this.total = 0;
+        }
 
-		public void AddCondition(Statement condition)
-		{
-			this.conditions.Add(condition);
-			this.UpdateScore();
-		}
+        public void AddCondition(Statement condition)
+        {
+            this.conditions.Add(condition);
+            this.UpdateScore();
+        }
 
-		public void SetResult(Statement result)
-		{
-			this.result = result;
-		}
+        public void SetResult(Statement result)
+        {
+            this.result = result;
+        }
 
-		public void UpdateScore()
-		{
-			// get current length of cancer conditions
-			int count = this.conditions.Count;
+        public void SetTotal(int total)
+        {
+            this.total += total;
+            Console.WriteLine(total);
+        }
 
-			// reset list
-			this.score.Clear();
+        public void UpdateScore()
+        {
+            // get current length of cancer conditions
+            int count = 10;
 
-			// update list values
-			for (int i = 0; i < count; i++)
-			{
-				this.score.Add(count);
-				count--;
-			}
-		}
-	}
+            // reset list
+
+            this.score.Clear();
+
+            // update list values
+            for (int i = 0; i < this.conditions.Count; i++)
+            {
+                this.score.Add(count);
+                count--;
+            }
+        }
+    }
 }
