@@ -1,0 +1,41 @@
+Cancer: Bladder cancer
+Symptoms: Urine blood clot|Urination pain|Frequent urination|Back pain
+Treatments: Surgery|Radiation therapy|Chemotherap|Immunotherapy
+
+Cancer: Liver cancer
+Symptoms: Lump on rib|Swollen abdomen|Jaundice|Bruising|Weight loss
+Treatments: Surveillance|Surgery|Liver transplant|Ablation therapy|Embolization therapy|Targeted therapy|Immunotherapy|Radiation therapy
+
+Cancer: Colon cancer
+Symptoms: Red stool|Diarrhea|Constipation|Weight loss|Vomiting
+Treatments: Surgery|Radiofrequency ablation|Cryosurgery|Chemotherapy|Radiation therapy|Targeted therapy|Immunotherapy
+
+Cancer: Endometrial cancer
+Symptoms: Vaginal bleeding|Urination pain|Pelvic pain
+Treatments: Surgery|Radiation therapy|Chemotherapy|Hormone therapy
+
+Cancer: Pancreatic cancer
+Symptoms: Jaundice|Light stool|Dark urine|Abdomen pain|Back pain|Weight loss|Loss of appetite|Fatigue
+Treatments: Surgery|Radiation therapy|Chemotherapy|Chemoradiation therapy|Targeted therapy
+
+Cancer: Prostate cancer
+Symptoms: Trouble urinating|Blood in semen|Discomfort in pelvic area|Bone pain|Erectile dysfunction
+Treatments: Hormone therapy|Radiation therapy|Freezing prostate tissues|Chemotherapy
+
+Cancer: Lung cancer
+Symptoms: Coughing up blood|Shortness of breath|Chest pain|Weight loss|Bone pain|Headache
+Treatments: Radiation therapy|Chemotherapy|Radiosurgery|Drug therapy|Immunotherapy|Palliative care
+
+Cancer: Breast cancer
+Symptoms: Breast lump|Change in breast size|Newly inverted nipple|Breast redness
+Treatments: Lumpectomy|Mastectomy|Radiation Therapy|Chemotherapy|Palliative care
+
+Cancer: Thyroid cancer
+Symptoms: Lump on neck|Voice change|Difficulty swallowing|Neck pain|Swollen lymph
+Treatments: Surgery|Thyroid hormone therapy|Radioactive iodine|External radiation therapy|Drug therapy|Immunotherapy|Palliative care
+
+Cancer: Leukemia
+Symptoms: Fever|Chills|Fatigue|Weight loss|Swollen lymph|Easy bruising|Nosebleed|Bone pain
+Treatments: Chemotherapy|Biological therapy|Radiation therapy|Stem cell transplant|Targeted drug therapy
+
+

@@ -27,6 +27,12 @@ namespace ConsoleApp1
 
         public void InferCancers(List<Symptom> symptoms) // forward chaining
         {
+            // set score to 0
+            for (int i = 0; i < kb.Cancers.Count; i++)
+            {
+                kb.Cancers[i].SetTotal(0);
+            }
+
             // find which facts corresponds to a rule and create a temp list of rules that match
             List<Cancer> temp = new List<Cancer>();
 
@@ -65,8 +71,8 @@ namespace ConsoleApp1
                     if (kb.Cancers[i].conditions[j].GetVariable().Trim().ToLower().Equals(s.symptom.GetVariable().Trim().ToLower()))
                     {
                         // matches, add to temp list
+                        kb.Cancers[i].SetTotal(10 - (j + 1));
                         temp.Add(kb.Cancers[i]);
-                        temp[i].SetTotal(10 - (j + 1));
                     }
                     else
                     {

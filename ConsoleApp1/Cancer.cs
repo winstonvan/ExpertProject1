@@ -11,6 +11,7 @@ namespace ConsoleApp1
     {
         public String cancerName;
         public List<Statement> conditions;
+        public List<Statement> treatments;
         public Statement result;
         public List<int> score;
         public int total;
@@ -19,14 +20,7 @@ namespace ConsoleApp1
         {
             cancerName = "";
             this.conditions = new List<Statement>();
-            this.score = new List<int>();
-            this.total = 0;
-        }
-
-        public Cancer(String cancerName)
-        {
-            this.cancerName = cancerName;
-            this.conditions = new List<Statement>();
+            this.treatments = new List<Statement>();
             this.score = new List<int>();
             this.total = 0;
         }
@@ -37,15 +31,20 @@ namespace ConsoleApp1
             this.UpdateScore();
         }
 
+        public void AddTreatment(Statement treatment)
+        {
+            this.treatments.Add(treatment);
+        }
+
         public void SetResult(Statement result)
         {
             this.result = result;
         }
 
+
         public void SetTotal(int total)
         {
             this.total += total;
-            Console.WriteLine(total);
         }
 
         public void UpdateScore()
