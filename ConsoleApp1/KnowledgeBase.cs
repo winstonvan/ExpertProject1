@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -19,6 +20,22 @@ namespace ConsoleApp1
             Symptom = new List<Symptom>();
             LoadData();
         }
+
+        public void AddData(String cancer, String symptoms, String treatments)
+        {
+            cancer = "Cancer: " + cancer;
+            symptoms = "Symptoms: " + Regex.Replace(symptoms, " *, *", "|"); // remove spaces before and after commas and replace commas with |
+            treatments = "Treatments: " + Regex.Replace(treatments, " *, *", "|");
+
+            using (StreamWriter sw = new StreamWriter("C:/Users/winst/Documents/Git/ExpertProject1/ConsoleApp1/data.txt", true))
+            {
+                sw.WriteLine(cancer);
+                sw.WriteLine(symptoms);
+                sw.WriteLine(treatments + "\n");
+                sw.Close();
+            }
+        }
+
         public void LoadData()
         {
             StreamReader sr = new StreamReader("C:/Users/winst/Documents/Git/ExpertProject1/ConsoleApp1/data.txt");
@@ -35,15 +52,13 @@ namespace ConsoleApp1
             {
                 if (currentLine.Contains("Cancer:"))
                 {
-                    Console.WriteLine("1");
                     split = "Cancer: ";
                     result = currentLine.Substring(currentLine.IndexOf(split) + split.Length);
                     c.SetResult(new Statement(result, "equals", "yes"));
                 }
                 else if (currentLine.Contains("Symptoms:"))
                 {
-                    Console.WriteLine("2");
-                    split = "Symptoms: ";
+                    split = "Symptoms: ";   
                     result = currentLine.Substring(currentLine.IndexOf(split) + split.Length);
                     symptoms = result.Split('|');
 
@@ -54,7 +69,6 @@ namespace ConsoleApp1
                 }
                 else if (currentLine.Contains("Treatments:"))
                 {
-                    Console.WriteLine("3");
                     split = "Treatment: ";
                     result = currentLine.Substring(currentLine.IndexOf(split) + split.Length);
                     treatments = result.Split('|');
@@ -72,6 +86,8 @@ namespace ConsoleApp1
 
                 currentLine = sr.ReadLine(); // next line
             }
+
+            sr.Close();
         }
     }
 }

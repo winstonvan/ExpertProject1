@@ -25,7 +25,7 @@ namespace ConsoleApp1
             kb.Symptom.Add(symptom);
         }
 
-        public void InferCancers(List<Symptom> symptoms) // forward chaining
+        public List<Cancer> InferCancers(List<Symptom> symptoms) // forward chaining
         {
             // set score to 0
             for (int i = 0; i < kb.Cancers.Count; i++)
@@ -50,14 +50,10 @@ namespace ConsoleApp1
                 }
             }
 
+            // sort by score
             temp.Sort((x, y) => y.total - x.total);
 
-
-            Console.WriteLine("\nCancer types matched: ");
-            for (int i = 0; i < temp.Count; i++)
-            {
-                Console.WriteLine("Cancer " + (i + 1) + ": " + temp[i].result.GetVariable());
-            }
+            return temp;
         }
 
         public List<Cancer> FindMatch(Symptom s)
@@ -68,20 +64,66 @@ namespace ConsoleApp1
             {
                 for (int j = 0; j < kb.Cancers[i].conditions.Count; j++)
                 {
-                    if (kb.Cancers[i].conditions[j].GetVariable().Trim().ToLower().Equals(s.symptom.GetVariable().Trim().ToLower()))
+                    String[] source = (kb.Cancers[i].conditions[j].GetVariable().Trim().ToLower()).Split(' ');
+                    String[] target = (s.symptom.GetVariable().Trim().ToLower()).Split(' ');
+                    
+                    for (int k = 0; k < source.Length; k++)
                     {
-                        // matches, add to temp list
-                        kb.Cancers[i].SetTotal(10 - (j + 1));
-                        temp.Add(kb.Cancers[i]);
-                    }
-                    else
-                    {
-                        // does not match
+                        for (int l = 0; l < target.Length; l++)
+                        {
+                            int distance = LevenshteinDistance(source[k], target[l]);
+                            
+                            if (distance <= 1)
+                            {
+                                kb.Cancers[i].SetTotal(10 - (j + 1));
+                                temp.Add(kb.Cancers[i]);
+                                break;
+                            }
+                        }
                     }
                 }
             }
-
             return temp;
+        }
+
+        public int LevenshteinDistance(string source, string target)
+        {
+            if (string.IsNullOrEmpty(source))
+            {
+                if (string.IsNullOrEmpty(target)) return 0;
+                return target.Length;
+            }
+            if (string.IsNullOrEmpty(target)) return source.Length;
+
+            if (source.Length > target.Length)
+            {
+                var temp = target;
+                target = source;
+                source = temp;
+            }
+
+            var m = target.Length;
+            var n = source.Length;
+            var distance = new int[2, m + 1];
+            // Initialize the distance matrix
+            for (var j = 1; j <= m; j++) distance[0, j] = j;
+
+            var currentRow = 0;
+            for (var i = 1; i <= n; ++i)
+            {
+                currentRow = i & 1;
+                distance[currentRow, 0] = i;
+                var previousRow = currentRow ^ 1;
+                for (var j = 1; j <= m; j++)
+                {
+                    var cost = (target[j - 1] == source[i - 1] ? 0 : 1);
+                    distance[currentRow, j] = Math.Min(Math.Min(
+                                distance[previousRow, j] + 1,
+                                distance[currentRow, j - 1] + 1),
+                                distance[previousRow, j - 1] + cost);
+                }
+            }
+            return distance[currentRow, m];
         }
 
         public void PrintCancers()
@@ -103,7 +145,7 @@ namespace ConsoleApp1
 
             for (int i = 0; i < kb.Symptom.Count; i++)
             {
-                Console.WriteLine("Symptom " + (i + 1) + ": " + kb.Symptom[i].symptom.GetVariable() + "");
+                Console.WriteLine("Symptom #" + (i + 1) + ": " + kb.Symptom[i].symptom.GetVariable() + "");
             }
         }
     }

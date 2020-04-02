@@ -35,7 +35,6 @@ Symptoms: Lump on neck|Voice change|Difficulty swallowing|Neck pain|Swollen lymp
 Treatments: Surgery|Thyroid hormone therapy|Radioactive iodine|External radiation therapy|Drug therapy|Immunotherapy|Palliative care
 
 Cancer: Leukemia
-Symptoms: Fever|Chills|Fatigue|Weight loss|Swollen lymph|Easy bruising|Nosebleed|Bone pain
+Symptoms: Fever|Chills|Faetigue|Weight loss|Swollen lymph|Easy bruising|Nosebleed|Bone pain
 Treatments: Chemotherapy|Biological therapy|Radiation therapy|Stem cell transplant|Targeted drug therapy
-
 
