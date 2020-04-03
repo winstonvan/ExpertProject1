@@ -38,7 +38,7 @@ namespace ConsoleApp1
                 // add symptoms to KB
                 for (int i = 0; i < symptomsList.Length; i++)
                 {
-                    IE.AddSymptom(new Symptom(new Statement(symptomsList[i], "equals", "yes")));
+                    IE.AddSymptom(new Symptom(new Statement(symptomsList[i], "=", "yes")));
                 }
 
                 Console.WriteLine("\nSymptoms: ");

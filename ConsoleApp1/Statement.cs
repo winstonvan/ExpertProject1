@@ -27,7 +27,7 @@ namespace ConsoleApp1
         public String GetVariable()
         {
             return this.variable;
-        }
+            }
         public String GetValue()
         {
             return this.value;

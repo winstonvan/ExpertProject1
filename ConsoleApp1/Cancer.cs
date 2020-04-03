@@ -9,7 +9,6 @@ namespace ConsoleApp1
 {
     public class Cancer
     {
-        public String cancerName;
         public List<Statement> conditions;
         public List<Statement> treatments;
         public Statement result;
@@ -18,7 +17,6 @@ namespace ConsoleApp1
 
         public Cancer()
         {
-            cancerName = "";
             this.conditions = new List<Statement>();
             this.treatments = new List<Statement>();
             this.score = new List<int>();
@@ -40,7 +38,6 @@ namespace ConsoleApp1
         {
             this.result = result;
         }
-
 
         public void SetTotal(int total)
         {

@@ -28,7 +28,7 @@ namespace ConsoleApp1
             treatments = "Treatments: " + Regex.Replace(treatments, " *, *", "|");
 
             using (StreamWriter sw = new StreamWriter("C:/Users/winst/Documents/Git/ExpertProject1/ConsoleApp1/data.txt", true))
-            {
+            {           
                 sw.WriteLine(cancer);
                 sw.WriteLine(symptoms);
                 sw.WriteLine(treatments + "\n");
@@ -54,7 +54,7 @@ namespace ConsoleApp1
                 {
                     split = "Cancer: ";
                     result = currentLine.Substring(currentLine.IndexOf(split) + split.Length);
-                    c.SetResult(new Statement(result, "equals", "yes"));
+                    c.SetResult(new Statement(result, "=", "yes"));
                 }
                 else if (currentLine.Contains("Symptoms:"))
                 {
@@ -64,7 +64,7 @@ namespace ConsoleApp1
 
                     for (int i = 0; i < symptoms.Length; i++)
                     {
-                        c.AddCondition(new Statement(symptoms[i], "equals", "yes"));
+                        c.AddCondition(new Statement(symptoms[i], "=", "yes"));
                     }
                 }
                 else if (currentLine.Contains("Treatments:"))
@@ -75,7 +75,7 @@ namespace ConsoleApp1
 
                     for (int i = 0; i < treatments.Length; i++)
                     {
-                        c.AddTreatment(new Statement(treatments[i], "equals", "yes"));
+                        c.AddTreatment(new Statement(treatments[i], "=", "yes"));
                     }
                 }
                 else
