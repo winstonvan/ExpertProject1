@@ -38,7 +38,7 @@ namespace ConsoleApp1
 
         public void LoadData()
         {
-            StreamReader sr = new StreamReader("C:/Users/winst/Documents/Git/ExpertProject1/ConsoleApp1/data.txt");
+            StreamReader sr = new StreamReader("C:/Users/Jacques/source/repos/ExpertProject1/ConsoleApp1/data.txt");
             String currentLine = sr.ReadLine();
             String split;
             String result;
